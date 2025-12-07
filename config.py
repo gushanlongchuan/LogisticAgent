@@ -1,7 +1,7 @@
 from google.api_core.retry import Retry
 
 # Global Retry Configuration
-# Used by all Gemini models to handle network blips or rate limits
+# Used by all models to handle network blips or rate limits
 retry_config = Retry(
     initial=1.0,      # Wait 1 second before first retry
     maximum=10.0,     # Max wait time between retries

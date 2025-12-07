@@ -7,7 +7,6 @@ def check_pickup_info(waybill_numbers: List[str]) -> str:
     if not waybill_numbers or waybill_numbers == [""]:
         return json.dumps({"code": 400, "msg": "Please provide a Waybill Number to check pickup status."})
 
-    # ... (Rest of existing logic) ...
     return json.dumps({
         "msg": "success", "code": 0,
         "data": [{
