@@ -2,6 +2,7 @@ from google.adk.agents import Agent
 from google.adk.models import Gemini
 from ...tools import tracking_tools
 from ...config import retry_config
+from ...callbacks import before_tool_callback, after_tool_callback
 
 status_agent = Agent(
     name="status_worker",
@@ -18,5 +19,7 @@ status_agent = Agent(
     - If the API returns "code: 400", tell the user what info is missing.
     - If the API returns "code: -1" (Not Found), tell the user the number doesn't exist.
     """,
-    tools=[tracking_tools.check_pickup_info, tracking_tools.get_waybill_info]
+    tools=[tracking_tools.check_pickup_info, tracking_tools.get_waybill_info],
+    before_model_callback=[before_tool_callback],
+    after_model_callback=[after_tool_callback]
 )
