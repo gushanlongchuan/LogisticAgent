@@ -3,10 +3,11 @@ from google.adk.models import Gemini
 from .tracking_team.status_agent import status_agent
 from .tracking_team.finance_agent import finance_agent
 from .tracking_team.carrier_agent import carrier_agent 
+from ..config import retry_config
 
 tracking_manager = Agent(
     name="tracking_manager",
-    model=Gemini(model_name="gemini-1.5-pro"),
+    model=Gemini(model_name="gemini-1.5-pro", retry=retry_config),
     instruction="""
     You are the Head of Tracking. Delegate tasks:
     1. STATUS/PICKUP -> 'status_worker'

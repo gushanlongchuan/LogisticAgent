@@ -1,10 +1,11 @@
 from google.adk.agents import Agent
 from google.adk.models import Gemini
 from ..tools import order_tools
+from ..config import retry_config
 
 order_specialist = Agent(
     name="order_specialist",
-    model=Gemini(model_name="gemini-1.5-flash"),
+    model=Gemini(model_name="gemini-1.5-flash", retry=retry_config),
     instruction="""
     You are the Order Specialist. Your goal is to manage orders precisely.
 

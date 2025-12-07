@@ -1,10 +1,11 @@
 from google.adk.agents import Agent
 from google.adk.models import Gemini
 from ..tools import shipping_tools
+from ..config import retry_config
 
 shipping_specialist = Agent(
     name="shipping_specialist",
-    model=Gemini(model_name="gemini-1.5-flash"),
+    model=Gemini(model_name="gemini-1.5-flash", retry=retry_config),
     instruction="""
     You are the Shipping Specialist.
 

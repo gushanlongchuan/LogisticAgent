@@ -1,10 +1,11 @@
 from google.adk.agents import Agent
 from google.adk.models import Gemini
 from ...tools import tracking_tools
+from ...config import retry_config
 
 status_agent = Agent(
     name="status_worker",
-    model=Gemini(model_name="gemini-1.5-flash"),
+    model=Gemini(model_name="gemini-1.5-flash", retry=retry_config),
     instruction="""
     You are the Status Worker.
     
