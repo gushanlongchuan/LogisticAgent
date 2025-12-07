@@ -10,4 +10,4 @@ if not os.getenv("GOOGLE_CLOUD_PROJECT"):
     print("WARNING: GOOGLE_CLOUD_PROJECT not found. Did you create the .env file?")
 
 # 2. Now it is safe to import the agent
-from .root_agent import root_agent as agent
+from .agent import root_agent as agent

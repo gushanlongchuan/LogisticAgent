@@ -13,5 +13,5 @@ root_agent = Agent(
     2. ORDERS/LABELS/DELETE -> 'order_specialist'
     3. SHIPPING/PRICES -> 'shipping_specialist'
     """,
-    tools=[tracking_manager, order_specialist, shipping_specialist]
+    sub_agents=[tracking_manager, order_specialist, shipping_specialist]
 )

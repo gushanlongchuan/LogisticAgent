@@ -1,4 +1,4 @@
-from google.adk.agents import Agent
+from google.adk.agents import ParallelAgent
 from google.adk.models import Gemini
 
 # Import the workers
@@ -9,9 +9,9 @@ from .carrier_agent import carrier_agent
 # Define the Model (We need a smart model to orchestrate parallel calls)
 model = Gemini(model="gemini-1.5-pro")
 
-audit_agent = Agent(
+audit_agent = ParallelAgent(
     name="full_audit_team",
-    model=model,
+    #model=model,
     instruction="""
     You are the Audit Team Leader.
     
@@ -26,5 +26,5 @@ audit_agent = Agent(
     """,
     # We pass the other AGENTS as TOOLS. 
     # The ADK allows Agents to be tools for other Agents.
-    tools=[status_agent, carrier_agent, finance_agent]
+    sub_agents=[status_agent, carrier_agent, finance_agent]
 )
