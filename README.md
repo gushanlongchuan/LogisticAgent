@@ -32,8 +32,7 @@ pip install -r requirements.txt
     * Order agent to handle order related requests
     * Shipping agent to handle shipping requests
     * Tracking agent to handle tracking requests
-### 3. Tracking APIs have more volume than the shipping and order's so in order to avoid too many tools for the agent, 
-starting to use sub-team to split it. 
+### 3. Tracking APIs have more volume than the shipping and order's so in order to avoid too many tools for the agent, starting to use sub-team to split it. 
     * finance agent to handle finance related query request like currency
     * status agent to handle status query requests like pickup info, waybill info
     * carrier agent to handle carrier related query request like get channel infor
